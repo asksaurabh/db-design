@@ -88,3 +88,48 @@ Things to discuss:
   - userId as a foreign key to link profile to user. This enforces that a profile must belong to a user. Since, this is unique to a user, it can also be a primary key.
   - profileBio can be NULL if the user has not set a bio.
 
+Step 3: Identifying Relationships among entities
+
+User relationships:
+1. User to Post
+  - A user can have multiple posts, but a post belongs to one user.
+  - Relationship: One-to-Many
+
+2. User to Like
+  - A user can like multiple posts, but a like belongs to one user.
+  - Relationship: One-to-Many
+
+3. User to Comment
+  - A user can comment on multiple posts, but a comment belongs to one user.
+  - Relationship: One-to-Many
+  - A user can also reply to multiple comments, but a comment belongs to one user.
+  - Relationship: One-to-Many
+
+4. User to Profile
+  - A user has one profile, and a profile belongs to one user.
+  - Relationship: One-to-One
+
+5. User to User 
+  - A user can follow multiple users, and a user can be followed by multiple users.
+  - Relationship: Many-to-Many
+  - This relationship can be represented using a separate table `User_Follow` with attributes:
+    - followerId (INT) (Foreign Key referencing User)
+    - followedId (INT) (Foreign Key referencing User)
+
+
+Post relationships:
+1. Post to Like
+  - A post can have multiple likes, but a like belongs to one post.
+  - Relationship: One-to-Many
+
+2. Post to Comment
+  - A post can have multiple comments, but a comment belongs to one post.
+  - Relationship: One-to-Many
+
+3. Post to Tag
+  - A post can have multiple tags, and a tag can belong to multiple posts.
+  - Relationship: Many-to-Many
+  - This relationship can be represented using a separate table `Post_Tag` with attributes:
+    - postId (INT) (Foreign Key referencing Post)
+    - tag (VARCHAR)
+
