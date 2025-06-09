@@ -45,6 +45,8 @@
   - `UNIQUE` constraint on userName and email.
   - Age can be a derived attribute from DOB.
   - Discussing datatypes such has VARCHAR, INT, DATE, DATETIME.
+  - CHAR(n) -> Fixed length string, Always takes up exactly n bytes even if the string is shorter.
+  - VARCHAR(n) -> Variable length string, Takes up only as many bytes as the string requires, plus 1 or 2 bytes for length information.
   - Add indexing on userName and email for faster lookups.
 
 2. Post
